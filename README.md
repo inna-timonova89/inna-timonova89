@@ -1,3 +1,6 @@
+# Репозиторий Инна Тимонова
+# Я прохожу обучение по курсу job4j и планирую завершить обучение к концу 2019 года
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
