@@ -1,19 +1,41 @@
 package ru.job4j.calculator;
 
-public class Calculator {
+/**
+ *CalculatorTest
+ *@since 17.06.2019.
+ *@author inna.timonova (ms.timonovai@mail.ru)
+ */
 
-    public double add(double first, double second){
+public class Calculator {
+    /**
+     * Method add.
+     * return sum.
+     */
+    public double add(double first, double second) {
         return first + second;
     }
 
-    public double substract(double first, double second){
+    /**
+     * Method substract.
+     * return remainder.
+     */
+    public double substract(double first, double second) {
         return first - second;
     }
 
-    public double multiple(double first, double second){
+    /**
+     * Method multiple.
+     * return the product of first and second.
+     */
+    public double multiple(double first, double second) {
         return first * second;
     }
 
-    public double div(double first, double second){
+    /**
+     * Method division.
+     * return the ratio of first and second.
+     */
+    public double div(double first, double second) {
         return first / second;
-    }}
+    }
+}
