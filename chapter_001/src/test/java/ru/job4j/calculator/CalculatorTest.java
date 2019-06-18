@@ -4,7 +4,17 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * CalculatorTest
+ * @since 17.06.2019.
+ *@author inna.timonova (ms.timonovai@mail.ru)
+ */
+
 public class CalculatorTest  {
+    /**
+     * Method whenAddOnePlusOneThenThenTwo
+     * Asserts that two doubles are equal
+     */
     @Test
     public void whenAddOnePlusOneThenTwo()  {
         Calculator calc = new Calculator();
@@ -12,6 +22,10 @@ public class CalculatorTest  {
         double expected = 2D;
         assertThat(result, is(expected));
     }
+    /**
+     * Method WhenSubstract2From3Then1
+     * Asserts that two doubles are equal
+     */
     @Test
     public void WhenSubstract2From3Then1(){
         Calculator calc = new Calculator();
@@ -19,6 +33,10 @@ public class CalculatorTest  {
         double expected = 1D;
         assertThat(result, is(expected));
     }
+    /**
+     * Method WhenMultiple2To2Then4
+     * Asserts that two doubles are equal
+     */
     @Test
     public void WhenMultiple2To2Then4(){
         Calculator calc = new Calculator();
@@ -26,6 +44,10 @@ public class CalculatorTest  {
         double expected = 4D;
         assertThat(result, is(expected));
     }
+    /**
+     * Method WhenDiv6To2Then3
+     * Asserts that two doubles are equal
+     */
     @Test
     public void WhenDiv6To2Then3() {
         Calculator calc = new Calculator();
