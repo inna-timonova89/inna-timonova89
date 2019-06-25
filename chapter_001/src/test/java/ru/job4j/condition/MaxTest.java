@@ -19,19 +19,13 @@ public class MaxTest {
     @Test
     public void whenMax2To1then2() {
         Max max = new Max();
-        int result = max.firstMax(2, 1);
-        assertThat(result, is(2));
-    }
-    @Test
-    public void whenMax2To1Then2() {
-        Max max = new Max();
-        int result = max.secondMax(1, 2);
+        int result = max.max(2, 1);
         assertThat(result, is(2));
     }
     @Test
     public void whenMax1To1Then1() {
         Max max = new Max();
-        int result = max.evenlyNum(1, 1);
+        int result = max.max(1, 1);
         assertThat(result, is(1));
     }
 }
