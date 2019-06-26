@@ -28,13 +28,7 @@ public class Triangle {
      * @return
      */
     private boolean exist(double a, double c, double b) {
-        if (a < b + c) {
-            return true;
-        } else if (b < a + c) {
-            return true;
-        } else {
-            return c < a + b;
-        }
+        return (a < b + c) && (b < a + c) && (c < a + b);
     }
 
 
