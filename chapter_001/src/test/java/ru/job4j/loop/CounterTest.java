@@ -17,4 +17,11 @@ public class CounterTest {
         assertThat(result, is(30));
         // здесь тест, проверяющий, что сумма чётных чисел от 1 до 10 при вызове метода counter.add будет равна 30.
     }
+    @Test
+    public void whenSumEvenNumbersFromOneToFifteenThenThirtySix() {
+        Counter counter = new Counter();
+        int result = counter.add(10, 15);
+        assertThat(result, is(36));
+        // здесь тест, проверяющий, что сумма чётных чисел от 1 до 10 при вызове метода counter.add будет равна 30.
+    }
 }
