@@ -73,11 +73,14 @@ public class Logic {
             for (int j = 0; j < table.length; j++) {
                 if (table[i][j] == 1) {
                     row++;
-                } if (table[i][j] == 1) {
-                    column++;
-                }if (column == table.length && row == table.length) {
+                }
+                if (column == table.length && row == table.length) {
                     result = true;
-                    break;
+                    column = 0;
+                    row = 0;
+                }
+                if (table[i][j] == 1) {
+                    column++;
                 }
             }
         } return result;
