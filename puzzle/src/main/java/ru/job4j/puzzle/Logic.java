@@ -69,25 +69,18 @@ public class Logic {
         boolean result = false;
         int column = 0;
         int row = 0;
-        int a = table.length - 1;
-        for (int i = 0; i < a; i++) {
-            for (int j = 0; j < a; j++) {
-                if (table[i][j] == 1 && table[i][j + 1] == 1) {
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table.length; j++) {
+                if (table[i][j] == 1) {
                     row++;
-                    if (row == a) {
-                        result = true;
-                        break;
-                    }
-                } else if (table[i][j] == 1 && table[i + 1][j] == 1) {
+                } if (table[i][j] == 1) {
                     column++;
-                    if (column == a) {
-                        result = true;
-                        break;
-                    }
+                }if (column == table.length && row == table.length) {
+                    result = true;
+                    break;
                 }
             }
-        }
-        return result;
+        } return result;
     }
 
     public int[][] convert() {
