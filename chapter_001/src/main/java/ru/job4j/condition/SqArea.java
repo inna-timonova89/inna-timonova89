@@ -8,7 +8,7 @@ package ru.job4j.condition;
 
 public class SqArea {
     /**
-     *Main
+     *square
      *@param p - perimeter.
      *@param k - the times the width id bigger than height.
      *@return square - height multipled to width.
