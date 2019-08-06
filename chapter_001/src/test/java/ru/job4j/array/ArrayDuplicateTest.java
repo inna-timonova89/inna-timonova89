@@ -19,7 +19,6 @@ public class ArrayDuplicateTest {
         String[] result = duplicate.remove(input);
         String[] expect = new String[] {"Привет", "Мир", "Супер"};
         assertThat(result, arrayContainingInAnyOrder(expect));
-        //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
     }
     @Test
     public void whenRemoveDublicatesThenElementsInArrayAreUnique() {

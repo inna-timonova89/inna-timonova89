@@ -12,30 +12,30 @@ import static org.junit.Assert.assertThat;
 public class SortTest {
     @Test
     public void whenSortedArrayThenTrue() {
-        Sort sort = new Sort();
+        Sort comp = new Sort();
         int[] input = new int[] {1, 2, 3};
-        boolean result = sort.isSorted(input);
+        boolean result = comp.isSorted(input);
         assertThat(result, is(true));
     }
     @Test
     public void whenArrayIsSortedThetrue() {
-        Sort sort = new Sort();
+        Sort comp = new Sort();
         int[] input = new int[] {1, 10, 100};
-        boolean result = sort.isSorted(input);
+        boolean result = comp.isSorted(input);
         assertThat(result, is(true));
     }
     @Test
     public void whenNotSortedArraythenFalse() {
-        Sort sort = new Sort();
+        Sort comp = new Sort();
         int[] input = new int[] {10, 1, 100};
-        boolean result = sort.isSorted(input);
+        boolean result = comp.isSorted(input);
         assertThat(result, is(false));
     }
     @Test
     public void whenArrayIsNotSortedThenFalse() {
-        Sort sort = new Sort();
+        Sort comp = new Sort();
         int[] input = new int[] {100, 1, 10};
-        boolean result = sort.isSorted(input);
+        boolean result = comp.isSorted(input);
         assertThat(result, is(false));
     }
 }
