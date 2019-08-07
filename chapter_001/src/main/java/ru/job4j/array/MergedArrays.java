@@ -14,13 +14,10 @@ public class MergedArrays {
             if (rightInd >= right.length) {
                 merged[min] = left[leftInd];
                 leftInd++;
-                continue;
             } else if (leftInd >= left.length) {
                 merged[min] = right[rightInd];
                 rightInd++;
-                continue;
-            }
-            if (left[leftInd] < right[rightInd]) {
+            } else if (left[leftInd] < right[rightInd]) {
                 merged[min] = left[leftInd];
                 leftInd++;
             } else if (right[rightInd] < left[leftInd]) {
