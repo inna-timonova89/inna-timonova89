@@ -1,24 +1,36 @@
 package ru.job4j.condition;
 
-/**
- * Point
- *
- *@author inna.timonova (ms.timonovai@mail.ru)
- */
+import static java.lang.Math.sqrt;
+import static java.lang.Math.pow;
 
 public class Point {
+
     /**
-     *distance.
-     *@param x1 the first point in the X coordinates.
-     *@param y1 the first point in the Y coordinates.
-     *@param x2 the second  point in the X coordinates.
-     *@param y2 the second point in the Y coordinates.
-     *@return the distance between 2 points in the coordinates system.
+     * Это поле объекта. Оно доступно только конкретному объекту.
      */
-    public double distance(int x1, int y1, int x2, int y2) {
-        double first = Math.pow(x2 - x1, 2);
-        double second = Math.pow(y2 - y1, 2);
-        double third = first + second;
-        return Math.sqrt(third);
+    private int x;
+
+    /**
+     * И это поле объекта. Оно доступно только конкретному объекту.
+     */
+    private int y;
+
+    /**
+     * Конструктор, который принимает начальное состояние объекта "точка"
+     * @param first координата x
+     * @param second координата y
+     */
+    public Point(int first, int second) {
+        this.x = first;
+        this.y = second;
+    }
+
+
+    public double distance(Point pnt) {
+        return sqrt(pow(this.x - pnt.x, 2) + pow(this.y - pnt.y, 2));
+    }
+
+    public void info() {
+        System.out.println(String.format("Point[%s, %s]", this.x, this.y));
     }
 }
