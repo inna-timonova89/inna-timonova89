@@ -11,21 +11,21 @@ import static org.junit.Assert.assertThat;
  */
 public class MaxTest {
     @Test
-    public void whenMax1To2Then2() {
+    public void whenMaxRight2To4ThenRight2() {
         Max mx = new Max();
-        int result = mx.max(1, 2);
-        assertThat(result, is(2));
+        int result = mx.max(1, 2, 3);
+        assertThat(result, is(3));
     }
     @Test
-    public void whenMax2To1then2() {
+    public void whenMaxLeft1To4thenLeft1() {
         Max mx = new Max();
-        int result = mx.max(2, 1);
-        assertThat(result, is(2));
+        int result = mx.max(5, 1, 0);
+        assertThat(result, is(5));
     }
     @Test
-    public void whenMax1To1Then1() {
+    public void whenMaxEachTo4ThenAny() {
         Max mx = new Max();
-        int result = mx.max(1, 1);
-        assertThat(result, is(1));
+        int result = mx.max(3, 3, 3);
+        assertThat(result, is(3));
     }
 }
