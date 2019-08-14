@@ -40,9 +40,9 @@ public class Triangle {
      */
     public double area() {
         double rsl = -1;
-        double a = first.distance(second);
-        double b = first.distance(third);
-        double c = second.distance(third);
+        double a = this.first.distance(this.second);
+        double b = this.first.distance(this.third);
+        double c = this.second.distance(this.third);
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             // написать формулу для расчета площади треугольника.
