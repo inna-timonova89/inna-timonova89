@@ -1,10 +1,10 @@
 package ru.job4j.tracker;
 
 public class Patient {
-    public String name;
-    public String surname;
-    public int age;
-    public String diagnose;
+    private String name;
+    private String surname;
+    private int age;
+    private String diagnose;
 
     public Patient(String name, String surname, int age, String diagnose) {
         this.name = name;

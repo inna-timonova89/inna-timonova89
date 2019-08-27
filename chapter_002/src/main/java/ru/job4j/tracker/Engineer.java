@@ -1,17 +1,11 @@
 package ru.job4j.tracker;
 
 public class Engineer extends Profession {
-    public String scienceField;
-    public double grade;
+    private double grade;
 
-    public Engineer(String name, String surname, String education, String specialization, long birthday, double salary, String scienceField, double grade) {
-        super(name,  surname, education, birthday, specialization, salary);
-        this.scienceField = scienceField;
+    public Engineer(String fullName, long birthday, String specialization, double salary, double grade) {
+        super(fullName, birthday, specialization, salary);
         this.grade = grade;
-    }
-
-    public String getScienceField() {
-        return scienceField;
     }
 
     @Override
@@ -21,19 +15,11 @@ public class Engineer extends Profession {
 }
 
 class Programmer extends Engineer {
-    public String typeOfProduct;
-    public String programmingLanguage;
-    public boolean distanceWork;
+    private String programmingLanguage;
 
-    public Programmer(String name, String surname, String education, String specialization, long birthday, double salary, String scienceField, double grade, String typeOfProduct, String programmingLanguage, boolean distanceWork) {
-        super(name, surname, education, specialization, birthday, salary, scienceField, grade);
-        this.typeOfProduct = typeOfProduct;
+    public Programmer(String fullName, long birthday, String specialization, double salary, double grade, String programmingLanguage) {
+        super(fullName, birthday, specialization, salary, grade);
         this.programmingLanguage = programmingLanguage;
-        this.distanceWork = distanceWork;
-    }
-
-    public boolean isDistanceWork() {
-        return false;
     }
 
     @Override
@@ -43,16 +29,14 @@ class Programmer extends Engineer {
 }
 
 class Builder extends Engineer {
-    public String project;
-    public String architecture;
+    private String project;
 
-    public Builder(String name, String surname, String education, String specialization, long birthday, double salary, String scienceField, double grade, String project, String architecture) {
-        super(name, surname, education, specialization, birthday, salary, scienceField, grade);
+    public Builder(String fullName, long birthday, String specialization, double salary, double grade, String project) {
+        super(fullName, birthday, specialization, salary, grade);
         this.project = project;
-        this.architecture = architecture;
     }
 
-    public String getArchitecture() {
-        return this.architecture;
+    public String getProject() {
+        return this.project;
     }
 }

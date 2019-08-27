@@ -1,17 +1,13 @@
 package ru.job4j.tracker;
 
 public class Profession {
-    public  String name;
-    public String surname;
-    public String education;
-    public long birthday;
+    private  String fullName;
+    private long birthday;
     public String specialization;
-    public double salary;
+    private double salary;
 
-    public Profession(String name, String surname, String education, long birthday, String specialization, double salary) {
-        this.name = name;
-        this.surname = surname;
-        this.education = education;
+    public Profession(String fullName, long birthday, String specialization, double salary) {
+        this.fullName = fullName;
         this.birthday = birthday;
         this.specialization = specialization;
         this.salary = salary;
@@ -19,16 +15,8 @@ public class Profession {
     public Profession() {
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public String getSurname() {
-        return this.surname;
-    }
-
-    public String getEducation() {
-        return this.education;
+    public String getFullName() {
+        return this.fullName;
     }
 
     public long getBirthday() {
