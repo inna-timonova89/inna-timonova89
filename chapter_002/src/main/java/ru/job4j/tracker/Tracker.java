@@ -70,7 +70,6 @@ public class Tracker {
      * Метод находит все заявки в хранилище
      */
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
         return Arrays.copyOf(this.items, this.position);
     }
     /**
@@ -86,7 +85,7 @@ public class Tracker {
                 count++;
             }
         }
-        return Arrays.copyOf(this.items, this.position);
+        return Arrays.copyOf(this.items, count);
     }
     /**
      * Метод ищет заявку в хранилище по Id
