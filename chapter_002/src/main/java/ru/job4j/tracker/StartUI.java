@@ -126,7 +126,6 @@ public class StartUI {
         }
     }
 
-
     /**
      * Метод реализует изменение заявки в хранилище.
      */
@@ -138,13 +137,17 @@ public class StartUI {
         } else {
             String id = input.ask("Введите идентиикатор заявки");
             String name = input.ask("Введите название заявки");
-            System.out.println("Заявка " + name + " готова к изменению...");
             Item item = new Item(name, id);
             String name2 = input.ask("Введите новое название заявки");
             Item item2 = new Item(name2, id);
-            this.tracker.replace(id, item2);
-            System.out.println("Ваша заявка " + item.getName() + " " + item.getId() + " успешно изменена на " + item2.getName() + " " + item2.getId());
+            if (this.tracker.replace(id, item2)) {
+                System.out.println("Заявка " + id + " готова к изменению...");
+                System.out.println("Ваша заявка " + item.getName() + " " + item.getId() + " успешно изменена на " + item2.getName() + " " + item2.getId());
+            } else {
+                System.out.println("Заявка не найдена");
+            }
         }
+
     }
 
     /**
@@ -157,12 +160,16 @@ public class StartUI {
         } else {
             System.out.println("Удаление заявки...");
             String id = input.ask("Введите идентификатор заявки: ");
-                System.out.println("Заявка " + id + " готова к удалению...");
-                Item item = new Item(id);
-                this.tracker.delete(id);
+            Item item = new Item(id);
+            if (this.tracker.delete(id)) {
+                System.out.println("Подготовка к удалению...");
                 System.out.println("Ваша заявка " + id + " успешно удалена");
+            } else {
+                System.out.println("Заявка не найдена");
+            }
         }
     }
+
 
     /**
      * Метод реализует поиск заявки в хранилище по уникальному идентификатору.
