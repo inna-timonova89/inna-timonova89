@@ -2,6 +2,10 @@ package ru.job4j.io;
 
 import java.util.Scanner;
 
+/**
+ * @version $Id$
+ * @since 0.1
+ */
 public class Dendy {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

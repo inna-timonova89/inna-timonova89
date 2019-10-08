@@ -3,6 +3,10 @@ package ru.job4j.io;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * @version $Id$
+ * @since 0.1
+ */
 public class MagicBall {
     public static void main(String[] args) {
         System.out.print("Я великий оракул. Что ты хочешь узнать?");

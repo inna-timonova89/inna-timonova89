@@ -1,7 +1,10 @@
 package ru.job4j.io;
 
 import java.util.Scanner;
-
+/**
+ * @version $Id$
+ * @since 0.1
+ */
 public class Matches {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -23,7 +26,7 @@ public class Matches {
             if (matches == 0) {
                 System.out.println("Игра закончена, спичек больше нет. Поздравляем с победой!");
             } else if (select > matches) {
-                System.out.println("Увы! Вы хотите взять слишком много спичек. Попробуйте еще раз.");
+                System.out.println("Увы! такое количество спичек недоступно. Попробуйте еще раз.");
             }
         }
     }
