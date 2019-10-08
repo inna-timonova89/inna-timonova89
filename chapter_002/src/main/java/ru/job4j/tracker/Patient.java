@@ -12,5 +12,4 @@ public class Patient {
         this.age = age;
         this.diagnose = diagnose;
     }
-
 }

@@ -8,6 +8,9 @@ public class Engineer extends Profession {
         this.grade = grade;
     }
 
+    public Engineer() {
+    }
+
     @Override
     public double getSalary() {
         return super.getSalary() * this.grade;
