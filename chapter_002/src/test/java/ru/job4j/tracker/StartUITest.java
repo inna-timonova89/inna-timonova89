@@ -1,14 +1,47 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import ru.job4j.tracker.tracker.StubAction;
-import ru.job4j.tracker.tracker.*;
-
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertNull;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.StringJoiner;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+import ru.job4j.tracker.tracker.StubAction;
+import ru.job4j.tracker.tracker.*;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertNull;
+
 public class StartUITest {
+    private final PrintStream def = System.out;
+    private  final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.def);
+    }
+
+
+    @Test
+    public void whenPrintMenu() {
+        StubInput input = new StubInput(
+                new String[] {"0"}
+        );
+        StubAction action = new StubAction();
+        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                .add("Menu.")
+                .add("0.Stub action")
+                .toString();
+        assertThat(new String(out.toByteArray()), is(expect));
+    }
 
     @Test
     public void whenAddItem() {
@@ -108,3 +141,4 @@ public class StartUITest {
         assertThat(action.isCall(), is(true));
     }
 }
+
