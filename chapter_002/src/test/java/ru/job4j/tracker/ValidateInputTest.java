@@ -3,9 +3,11 @@ package ru.job4j.tracker;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ru.job4j.tracker.tracker.ConsoleInput;
 import ru.job4j.tracker.tracker.StubInput;
 import ru.job4j.tracker.tracker.ValidateInput;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -42,9 +44,9 @@ public class ValidateInputTest {
     @Test
     public void whenInvalidKeyFromMenu() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"-1", "1"})
+                new StubInput(new String[] {"7", "1"})
         );
-        input.askInt("Enter", 1);
+        input.askInt("Enter", 6);
         assertThat(
                 mem.toString(),
                 is(String.format("Please select a key from the menu " + System.lineSeparator()))
