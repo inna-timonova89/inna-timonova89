@@ -1,18 +1,11 @@
 package ru.job4j.tracker.tracker;
 
-public class CreateAction implements UserAction {
-    @Override
-    public String name() {
-        return null;
+public class CreateAction extends BaseAction {
+    public CreateAction(int key, String name) {
+        super(key, name);
     }
 
     @Override
-    public int key() {
-        return 0;
-    }
-
-    @Override
-    public boolean execute(Input input, Tracker tracker) {
-        return false;
+    public void execute(Input input, Tracker tracker) {
     }
 }

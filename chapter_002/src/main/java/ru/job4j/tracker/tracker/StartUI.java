@@ -75,14 +75,14 @@ public class StartUI {
             this.showMenu(actions);
             int select = input.askInt("Select: ", actions.length);
             UserAction action = actions[select];
-            run = action.execute(input, tracker);
+            action.execute(input, tracker);
         }
     }
 
     private void showMenu(UserAction[] actions) {
         System.out.println("Menu.");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + "." + actions[index].name());
+            System.out.println(index + "." + actions[index].key());
         }
     }
 
@@ -215,7 +215,18 @@ public class StartUI {
         Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction()
+                new UserAction() {
+                    public String info() {
+                        return "Info";
+                    }
+
+                    public int key() {
+                        return 6;
+                    }
+
+                    public void execute(Input input, Tracker tracker) {
+                    }
+                }
         };
         new StartUI().init(validate, tracker, actions);
     }
