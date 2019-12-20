@@ -16,7 +16,7 @@ public class ValidateInput implements Input {
     public int askInt(String question) {
         return 0;
     }
-
+//test commi
     @Override
     public int askInt(String question, int max) {
         boolean invalid = true;
