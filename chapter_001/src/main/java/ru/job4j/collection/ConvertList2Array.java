@@ -4,23 +4,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ConvertList2Array {
+
     public static int[][] toArray(List<Integer> list, int cells) {
         int groups = (int) Math.ceil((double) list.size() / cells);
         System.out.println(groups);
         int[][] array = new int[cells][groups];
         int index = 0;
-        for (int row = 0; row < array.length; row++) {
-            for (int cell = 0; cell < array.length; cell++) {
-                if (index < list.size()) {
-                    array[row][cell] = list.get(index);
-                } else {
-                    array[row][cell] = 0;
-                }
-                index++;
-            }
+        for (int i : list) {
+            array[index / cells][index++ % cells] = i;
         }
         return array;
     }
+
 
     public static void main(String[] args) {
         List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7);
@@ -32,4 +27,7 @@ public class ConvertList2Array {
             System.out.println();
         }
     }
+
 }
+
+
