@@ -1,6 +1,9 @@
 package ru.job4j.tracker.tracker;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @version $Id$
@@ -69,20 +72,23 @@ public class StartUI {
     /**
      * Основной цикл программы.
      */
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, List<UserAction> actions) {
+        List<Integer> range = new ArrayList<>();
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = input.askInt("Select: ", actions.length);
-            UserAction action = actions[select];
+            int select = input.askInt("Select: ", actions.indexOf(range));
+            UserAction action = actions.get(select);
             action.execute(input, tracker);
         }
     }
 
-    private void showMenu(UserAction[] actions) {
+    private void showMenu(List<UserAction> actions) {
         System.out.println("Menu.");
-        for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + "." + actions[index].key());
+        int index = 0;
+        for (UserAction action : actions) {
+            System.out.println(action + "." + actions.get(index));
+//            System.out.println(index + "." + actions.get(index).key());
         }
     }
 
@@ -103,8 +109,9 @@ public class StartUI {
      */
     public static void showAllItems(Input input, Tracker tracker) {
         System.out.println("The list of all Items: ");
-        Item[] items = tracker.findAll();
-        if (items.length == 0) {
+        List<Item> items = new ArrayList<>();
+//        Item[] items = tracker.findAll();
+        if (items == null) {
             System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
         } else {
             for (Item item : items) {
@@ -118,8 +125,8 @@ public class StartUI {
      */
     public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("----- Update Item -----");
-        Item[] items = tracker.findAll();
-        if (items.length == 0) {
+        List<Item> items = tracker.findAll();
+        if (items == null) {
             System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
         } else {
             String id = input.askStr("Enter the Item's Id");
@@ -140,8 +147,8 @@ public class StartUI {
      * Метод реализует удаление заявки из хранилища.
      */
     public static void deleteItem(Input input, Tracker tracker) {
-        Item[] items = tracker.findAll();
-        if (items.length == 0) {
+        List<Item> items = tracker.findAll();
+        if (items == null) {
             System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
         } else {
             System.out.println("Delete the Item");
@@ -161,11 +168,11 @@ public class StartUI {
      * Метод реализует поиск заявки в хранилище по уникальному идентификатору.
      */
     public static void findItemById(Input input, Tracker tracker) {
-        Item[] items = tracker.findAll();
-        if (items.length == 0) {
+        List<Item> items = tracker.findAll();
+        if (items == null) {
             System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
         } else {
-            System.out.println("Fing the Item by Id");
+            System.out.println("Find the Item by Id");
             boolean found = false;
             while (!found) {
                 String id = input.askStr("Enter the Item's Id");
@@ -184,16 +191,16 @@ public class StartUI {
      * Метод реализует поиск заявки в хранилище по имени заявки.
      */
     public static void findItemByName(Input input, Tracker tracker) {
-        Item[] items = tracker.findAll();
-        if (items.length == 0) {
+        List<Item> items = tracker.findAll();
+        if (items == null) {
             System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
         } else {
             System.out.println("Find the Item by name");
             boolean found = false;
             while (!found) {
                 String name = input.askStr("Enter the Item's name: ");
-                Item[] item = tracker.findByName(name);
-                if (item.length == 0) {
+                List<Item> item = tracker.findByName(name);
+                if (item == null) {
                     System.out.println("The Item " + name + " is not found. Enter the Item's name again: ");
                 } else {
                     for (Item it : item) {
@@ -228,6 +235,6 @@ public class StartUI {
                     }
                 }
         };
-        new StartUI().init(validate, tracker, actions);
+        new StartUI().init(validate, tracker, Arrays.asList(actions));
     }
 }

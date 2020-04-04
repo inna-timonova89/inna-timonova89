@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -35,7 +36,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        new StartUI().init(input, new Tracker(), Arrays.asList(new UserAction[]{action}));
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0.Stub action")
@@ -49,7 +50,7 @@ public class StartUITest {
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
         StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
+        Item created = tracker.findAll().get(0);
         Item expected = new Item("Fix PC");
         assertThat(created.getName(), is(expected.getName()));
     }
@@ -61,7 +62,7 @@ public class StartUITest {
         Item item2 = new Item("item2");
         tracker.add(item1);
         tracker.add(item2);
-        Item item = tracker.findAll()[1];
+        Item item = tracker.findAll().get(1);
         Item[] items = new Item[] {item1, item2};
         String[] answers = {
                 String.valueOf(items.length),
@@ -76,7 +77,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("item1");
         tracker.add(item);
-        Item created = tracker.findAll()[0];
+        Item created = tracker.findAll().get(0);
         Item expected = created;
         String[] answers = {
                 created.getId(),
@@ -91,7 +92,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("item1");
         tracker.add(item);
-        Item created = tracker.findAll()[0];
+        Item created = tracker.findAll().get(0);
         Item expected = new Item(item.getName());
         String[] answers = {
                 created.getName(),
@@ -137,7 +138,7 @@ public class StartUITest {
                 new String[]{"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        new StartUI().init(input, new Tracker(), Arrays.asList(new UserAction[]{action}));
         assertThat(action.isCall(), is(true));
     }
 }
