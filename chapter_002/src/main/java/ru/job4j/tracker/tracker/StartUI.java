@@ -88,7 +88,6 @@ public class StartUI {
         int index = 0;
         for (UserAction action : actions) {
             System.out.println(action + "." + actions.get(index));
-//            System.out.println(index + "." + actions.get(index).key());
         }
     }
 
@@ -110,12 +109,10 @@ public class StartUI {
     public static void showAllItems(Input input, Tracker tracker) {
         System.out.println("The list of all Items: ");
         List<Item> items = new ArrayList<>();
-//        Item[] items = tracker.findAll();
-        if (items == null) {
-            System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
-        } else {
-            for (Item item : items) {
-                System.out.println(item.getName() + " " + item.getId());
+        for (Item item : items) {
+            System.out.println(item.getName() + " " + item.getId());
+            if (items == null) {
+                System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
             }
         }
     }
@@ -126,9 +123,6 @@ public class StartUI {
     public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("----- Update Item -----");
         List<Item> items = tracker.findAll();
-        if (items == null) {
-            System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
-        } else {
             String id = input.askStr("Enter the Item's Id");
             String name = input.askStr("Enter a new name of the Item");
             Item item = new Item(name);
@@ -141,16 +135,11 @@ public class StartUI {
             }
         }
 
-    }
-
     /**
      * Метод реализует удаление заявки из хранилища.
      */
     public static void deleteItem(Input input, Tracker tracker) {
         List<Item> items = tracker.findAll();
-        if (items == null) {
-            System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
-        } else {
             System.out.println("Delete the Item");
             String id = input.askStr("Enter the Item's Id: ");
             Item item = new Item(id);
@@ -161,7 +150,6 @@ public class StartUI {
                 System.out.println("The Item is not found");
             }
         }
-    }
 
 
     /**
@@ -169,15 +157,12 @@ public class StartUI {
      */
     public static void findItemById(Input input, Tracker tracker) {
         List<Item> items = tracker.findAll();
-        if (items == null) {
-            System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
-        } else {
             System.out.println("Find the Item by Id");
             boolean found = false;
             while (!found) {
                 String id = input.askStr("Enter the Item's Id");
                 Item item = tracker.findById(id);
-                if (item != null && id.equals(item.getId())) {
+                if (items != null && id.equals(item.getId())) {
                     System.out.println("The Item  " + item.getId() + " is successfully found");
                     found = true;
                 } else {
@@ -185,16 +170,12 @@ public class StartUI {
                 }
             }
         }
-    }
 
     /**
      * Метод реализует поиск заявки в хранилище по имени заявки.
      */
     public static void findItemByName(Input input, Tracker tracker) {
         List<Item> items = tracker.findAll();
-        if (items == null) {
-            System.out.println("There are no Items yet. You can create and add an Item. To do this enter 0 in the menu");
-        } else {
             System.out.println("Find the Item by name");
             boolean found = false;
             while (!found) {
@@ -210,7 +191,6 @@ public class StartUI {
                 }
             }
         }
-    }
 
     /**
      * Запускт программы.
