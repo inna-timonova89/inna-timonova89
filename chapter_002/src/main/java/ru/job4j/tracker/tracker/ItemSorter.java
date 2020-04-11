@@ -13,11 +13,10 @@ import java.util.List;
 public class ItemSorter {
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
+                new Item("five", "5"),
                 new Item("one", "1"),
-                new Item("nine", "9"),
-                new Item("five", "5")
+                new Item("nine", "9")
         );
-        Collections.sort(items);
         System.out.println(items);
         Collections.sort(items, new SortByIdItem());
         System.out.println(items);

@@ -211,7 +211,16 @@ public class StartUI {
                         return 6;
                     }
 
+                    @Override
                     public void execute(Input input, Tracker tracker) {
+                        List<Item> items = tracker.findAll();
+                        if (!items.isEmpty()) {
+                            for (Item item : items) {
+                                System.out.println(item.getName());
+                            }
+                        } else {
+                            System.out.println("Items not found");
+                        }
                     }
                 }
         };
