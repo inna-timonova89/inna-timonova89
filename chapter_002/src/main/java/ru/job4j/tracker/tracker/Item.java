@@ -2,14 +2,6 @@ package ru.job4j.tracker.tracker;
 
 import java.util.Objects;
 
-/**
- * Класс Item
- * TASK:
- * 1. Создайте для модели данных tracker.Item компаратор, который сортирует данные по возрастанию.
- * 2. Создайте для модели данных tracker.Item компаратор, который сортирует данные по убыванию.
- * 3. Напишите тесты с демонстрацией сортировки по возрастанию и убыванию.
- */
-
 public class Item implements Comparable<Item> {
     private String id;
     private String name;
@@ -17,6 +9,7 @@ public class Item implements Comparable<Item> {
     public Item(String name) {
         this.name = name;
     }
+
 
     public Item(String name, String id) {
         this.name = name;
@@ -49,6 +42,23 @@ public class Item implements Comparable<Item> {
 
     @Override
     public int compareTo(Item another) {
-        return id.compareTo(another.getId());
+        return this.id.compareTo(another.getId());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = super.equals(obj);
+        if (obj instanceof Item) {
+            Item item = (Item) obj;
+            if (this.name.equals(item.name) && this.id.equals(item.id)) {
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }

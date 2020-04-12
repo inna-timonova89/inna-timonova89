@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.tracker;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,24 +15,20 @@ import static java.util.Collections.sort;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-/**
- * Я не могу понять, почему не работает тест))
- */
-
 public class SortByIdItemTest {
 
     @Test
     public void whenByOrderSort() {
         List<Item> items = Arrays.asList(
-                new Item("ten", "10"),
-                new Item("three", "3"),
-                new Item("seven", "7")
+                new Item("five", "5"),
+                new Item("one", "1"),
+                new Item("nine", "9")
         );
         Collections.sort(items, new SortByIdItem());
         List<Item> expected = Arrays.asList(
-                new Item("three", "3"),
-                new Item("seven", "7"),
-                new Item("ten", "10")
+                new Item("one", "1"),
+                new Item("five", "5"),
+                new Item("nine", "9")
         );
         assertThat(items, is(expected));
     }
@@ -40,15 +36,15 @@ public class SortByIdItemTest {
     @Test
     public void whenByReverseOrderSort() {
         List<Item> list = Arrays.asList(
-                new Item("two", "2"),
-                new Item("six", "6"),
+                new Item("five", "5"),
+                new Item("one", "1"),
                 new Item("nine", "9")
         );
         Collections.sort(list, Collections.reverseOrder());
         List<Item> expected = Arrays.asList(
                 new Item("nine", "9"),
-                new Item("six", "6"),
-                new Item("two", "2")
+                new Item("five", "5"),
+                new Item("one", "1")
         );
         assertThat(expected, is(list));
     }
