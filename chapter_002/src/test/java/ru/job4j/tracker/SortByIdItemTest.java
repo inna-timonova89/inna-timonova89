@@ -5,14 +5,19 @@ import org.junit.Test;
 import ru.job4j.tracker.tracker.Item;
 import ru.job4j.tracker.tracker.SortByIdItem;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.list;
 import static java.util.Collections.sort;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
+
+/**
+ * Я не могу понять, почему не работает тест))
+ */
 
 public class SortByIdItemTest {
 
@@ -29,7 +34,7 @@ public class SortByIdItemTest {
                 new Item("seven", "7"),
                 new Item("ten", "10")
         );
-        Assert.assertThat(items, is(expected));
+        assertThat(items, is(expected));
     }
 
     @Test
