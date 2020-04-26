@@ -15,9 +15,9 @@ after_success:
 notifications:
   email:
     recipients:
-      - ms.timonovai@mail.ru
+      - ryzh.spb2@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
     env:
       global:
-        - CODECOV_TOKEN="86ad1edd-f75d-4989-9d5e-b13ed3fdc1ae"
+        - CODECOV_TOKEN="1db310e9-8ebb-4be1-a80a-dafa0e95f50a"
