@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/inna-timonova89/inna-timonova89.svg?branch=master)](https://travis-ci.org/inna-timonova89/inna-timonova89)
+[![codecov](https://codecov.io/gh/inna-timonova89/inna-timonova89/branch/master/graph/badge.svg)](https://codecov.io/gh/inna-timonova89/inna-timonova89)
+
 # job4j
 # change
 
