@@ -34,9 +34,15 @@ public class Item implements Comparable<Item> {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id'" + id + '\'' +
-                ", id=" + id +
+        return "Item{"
+                +
+                "id'"
+                + id
+                + '\''
+                +
+                ", id="
+                + id
+                +
                 '}';
     }
 
